@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+		<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+		<script src= "angular-slider-master/slider.js"></script>
+		<link rel="stylesheet" href="angular-slider-master/slider.css">
+		<script type="text/javascript" language="javascript" src="calendar.js"></script>
+		<style type="text/css">
+		div {
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			cursor: default;
+		}
+		#white{
+			text-align:center;
+			font-size:25px;
+			border: 2px solid black;
+			height:50px;
+			position: relative;
+			transform-style: preserve-3d;
+			transition: transform 1s;
+		}
+		#world:hover{
+			box-shadow: 0px 0px 15px 6px;
+		}
+		label{
+			position:relative;
+			width:15%;
+			text-align:center;
+			margin-right:5px;
+		}
+		p{
+			margin-top:-5px;
+		}
+		#yellow{
+			text-align:center;
+			font-size:25px;
+			border: 2px solid black;
+			height:50px;
+			position: relative;
+			transform-style: preserve-3d;
+			transition: transform 1s;
+			background-color: #FFCC99;
+		}
+		#green{
+			text-align:center;
+			font-size:25px;
+			border: 2px solid black;
+			height:50px;
+			position: relative;
+			transform-style: preserve-3d;
+			transition: transform 1s;
+			background-color: #339933;
+		}
+		</style>
+	</head>
+	<body ng-app="trees" ng-controller="main">
+		<div ng-repeat="n in getList()">
+			<div class={{getColumns($index)}} id="{{worldcolors[$index]}}" ng-click="clickOn($event,$index)" ng-hide="$index===clicked">
+				World {{n}}<br />
+				<p style="font-size:0.4em">~{{t[n]}}</p>
+			</div>
+			<div class={{getColumns($index)}} id="white" ng-click="clickOn($event,$index)" ng-show="$index===clicked">
+				<slider floor="1" ceiling="120" step="1" precision="1" ng-model="t[n]"></slider><label>{{t[n]}}</label>
+			</div>
+		</div>
+	</body>
+</html>
