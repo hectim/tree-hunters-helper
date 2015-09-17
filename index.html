@@ -65,7 +65,7 @@
 			position: relative;
 			transform-style: preserve-3d;
 			transition: transform 1s;
-			background-color: #339933;
+			background-color: #A6D785;
 		}
 		</style>
 	</head>
@@ -73,9 +73,9 @@
 		<div ng-repeat="n in getList()">
 			<div class={{getColumns($index)}} id="{{worldcolors[$index]}}" ng-click="clickOn($event,$index)" ng-hide="$index===clicked">
 				World {{n}}<br />
-				<p style="font-size:0.4em">~{{t[n]}}</p>
+				<p style="font-size:0.4em">~ {{t[n]}}</p>
 			</div>
-			<div class={{getColumns($index)}} id="white" ng-click="clickOn($event,$index)" ng-show="$index===clicked">
+			<div class={{getColumns($index)}} id="white" ng-click="clickOn($event,$index)" ng-show="$index===clicked"  ng-mouseup="changeColor(t[n], n)">
 				<slider floor="1" ceiling="120" step="1" precision="1" ng-model="t[n]"></slider><label>{{t[n]}}</label>
 			</div>
 		</div>
