@@ -4,7 +4,7 @@ var tickLength = 60000; // how long to wait for the timers
 var app = angular.module('trees', ['ui.slider']);
 
 app.controller('main', ['$scope','$timeout', function($scope, $timeout){
-	$scope.worldcolors = ["white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white"];
+	$scope.worldcolors = Array(worlds.length+1).join(1).split('').map(function(){return "white";});
 	$scope.timer = 0;
 	$scope.checker = true;
 	$scope.front = true;
