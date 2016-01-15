@@ -7,5 +7,6 @@ This is just a tool to keep track of scouted worlds.
 * Clicking a world will show a slider.
   - Clicking and dragging will set that world to spawn in that number of minutes.
 * Clicking the title will hide all non-activated worlds (the ones without a time set)
+* Refreshing the page will clear all set times.
 
 More features to come if I ever get any users.
