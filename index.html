@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml>
   <head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -67,9 +67,25 @@
 			transition: transform 1s;
 			background-color: #A6D785;
 		}
+    body{
+      padding-top: 80px
+    }
+    .container-fluid{
+      border-bottom: 1px solid black;
+    }
+    a{
+      color: #333333;
+    }
 		</style>
 	</head>
-	<body ng-app="trees" ng-controller="main">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <h1><a href="#top"><i class="fa fa-caret-square-o-up" style="position:absolute;left:30px"></i></a></h1>
+      <h2 align="center">Evil Tree Helper</h2>
+      <h1><a href="#bottom"><i class="fa fa-caret-square-o-down" style="position:absolute;right:30px;top:20px"></i></a></h1>
+    </div>
+  </nav>
+	<body ng-app="trees" ng-controller="main" id="top">
 		<div ng-repeat="n in getList()">
 			<div class={{getColumns($index)}} id="{{worldcolors[$index]}}" ng-click="clickOn($event,$index)" ng-hide="$index===clicked">
 				World {{n}}<br />
@@ -80,4 +96,5 @@
 			</div>
 		</div>
 	</body>
+  <div id="bottom" style="clear:both"></div>
 </html>
