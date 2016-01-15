@@ -88,7 +88,7 @@
   </nav>
 	<body ng-app="trees" ng-controller="main" id="top">
     <div id="content" class="col-md-10 col-md-offset-1">
-      <div ng-repeat="n in getList()" ng-hide="!showAll && !t[n]">
+      <div ng-repeat="n in getList()" ng-hide="!showAll && t[n]==null">
         <div class="col-md-2" id="{{worldcolors[$index]}}" ng-click="clickOn($event,$index)" ng-hide="$index===clicked">
           World {{n}}<br />
           <p style="font-size:0.4em">~ {{t[n]}}</p>
