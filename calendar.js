@@ -10,27 +10,21 @@ app.controller('main', ['$scope','$timeout', function($scope, $timeout){
 	$scope.front = true;
 	$scope.clicked = -1;
 	$scope.t = [];
+  $scope.showAll = true;
+
 	$scope.getList = function(){
 		return worlds;
 	}
-	$scope.getColumns = function($index){
-		var result = "";
-		var pick = ($index)%5;
-		switch(pick){
-			case 0:
-				result = "col-md-2 col-md-offset-1";
-				break;
-			default:
-				result = "col-md-2";
-				break;
-		}
-		return result;
-	}
+
 	$scope.numWorlds = worlds.length;
 
 	$scope.getColor = function($index){
 		return worldcolors[$index];
 	}
+
+  $scope.toggleMine = function(){
+    $scope.showAll = !$scope.showAll
+  }
 
 	$scope.changeColor = function(n, t){
 		if(n == undefined){
@@ -39,7 +33,7 @@ app.controller('main', ['$scope','$timeout', function($scope, $timeout){
 		} else if(n <= 5){
 			place = worlds.indexOf(parseInt(t));
 			$scope.worldcolors[place] = "yellow";
-		} 
+		}
 	}
 
 	$scope.clickOn = function($event, $index){
