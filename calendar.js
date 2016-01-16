@@ -23,7 +23,10 @@ app.controller('main', ['$scope','$timeout', function($scope, $timeout){
 	}
 
   $scope.toggleMine = function(){
-    $scope.showAll = !$scope.showAll
+    console.log($scope.t.length)
+    if($scope.t.length > 0){    //to prevent stupid people from getting stuck on a white page
+      $scope.showAll = !$scope.showAll
+    }
   }
 
 	$scope.changeColor = function(n, t){
@@ -33,7 +36,10 @@ app.controller('main', ['$scope','$timeout', function($scope, $timeout){
 		} else if(n <= 5){
 			place = worlds.indexOf(parseInt(t));
 			$scope.worldcolors[place] = "yellow";
-		}
+		} else {
+      place = worlds.indexOf(parseInt(t));
+      $scope.worldcolors[place] = "white";
+    }
 	}
 
 	$scope.clickOn = function($event, $index){
@@ -49,25 +55,24 @@ app.controller('main', ['$scope','$timeout', function($scope, $timeout){
     $scope.onTimeout = function(){
         $scope.counter++;
         mytimeout = $timeout($scope.onTimeout,tickLength);
-		for(i in $scope.t){
-			$scope.t[i]--;
-			if($scope.t[i] >= -10 && $scope.t[i] <= 0){
-				place = worlds.indexOf(parseInt(i));
-				$scope.worldcolors[place] = "green";
-			} else if($scope.t[i] <= 5 && $scope.t[i] > 0){
-				place = worlds.indexOf(parseInt(i));
-				$scope.worldcolors[place] = "yellow";
-			} else {
-				place = worlds.indexOf(parseInt(i));
-				$scope.worldcolors[place] = "white";
-			}
-		}
-		for(i in $scope.t){
-			if($scope.t[i] < -10){
-				delete $scope.t[i];
-			}
-		}
+      for(i in $scope.t){
+        $scope.t[i]--;
+        if($scope.t[i] >= -10 && $scope.t[i] <= 0){
+          place = worlds.indexOf(parseInt(i));
+          $scope.worldcolors[place] = "green";
+        } else if($scope.t[i] <= 5 && $scope.t[i] > 0){
+          place = worlds.indexOf(parseInt(i));
+          $scope.worldcolors[place] = "yellow";
+        } else {
+          place = worlds.indexOf(parseInt(i));
+          $scope.worldcolors[place] = "white";
+        }
+      }
+      for(i in $scope.t){
+        if($scope.t[i] < -10){
+          delete $scope.t[i];
+        }
+      }
     }
     var mytimeout = $timeout($scope.onTimeout,tickLength);
-
 }]);

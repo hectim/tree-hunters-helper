@@ -68,7 +68,7 @@
 			background-color: #A6D785;
 		}
     body{
-      padding-top: 90px;
+      padding-top: 85px;
       padding-bottom: 15px;
     }
     .container-fluid{
@@ -81,15 +81,15 @@
 	</head>
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
-      <h1><a href="#top"><i class="fa fa-caret-square-o-up" style="position:absolute;left:30px"></i></a></h1>
-      <h2 align="center" ng-click="toggleMine()">Evil Tree Helper</h2>
-      <h1><a href="#bottom"><i class="fa fa-caret-square-o-down" style="position:absolute;right:30px;top:20px"></i></a></h1>
+      <h2><a href="#top"><i class="fa fa-caret-square-o-up" style="position:absolute;left:30px"></i></a></h2>
+      <h3 align="center" ng-click="toggleMine()">Evil Tree Helper</h3>
+      <h2><a href="#bottom"><i class="fa fa-caret-square-o-down" style="position:absolute;right:30px;top:20px"></i></a></h2>
     </div>
   </nav>
 	<body ng-app="trees" ng-controller="main" id="top">
     <div id="content" class="col-md-10 col-md-offset-1">
       <div ng-repeat="n in getList()" ng-hide="!showAll && t[n]==null">
-        <div class="col-md-2" id="{{worldcolors[$index]}}" ng-click="clickOn($event,$index)" ng-hide="$index===clicked">
+        <div class="col-md-2" id="{{worldcolors[$index]}}" ng-click="clickOn($event,$index)" ng-hide="$index===clicked" style="white-space: nowrap; overflow:hidden; text-overflow:ellipsis;">
           World {{n}}<br />
           <p style="font-size:0.4em">~ {{t[n]}}</p>
         </div>
